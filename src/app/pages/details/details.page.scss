@@ -55,7 +55,7 @@ ion-content{
 .empr ion-avatar, .empr > ion-img-cache{
     width: 26px;
     height: 26px;
-    margin-right: 3px;
+    margin-right: 5px;
 }
 
 .icoFav{
@@ -114,6 +114,7 @@ ion-content{
     display: flex;
     align-items: center;
     justify-content: center;
+    display: none;
 }
 
 .cartDiv ion-icon{
@@ -143,4 +144,15 @@ ion-content{
     font-size: small;
     --background: #018f00;
     font-weight: 600;
+}
+
+.divContacto{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.divContacto ion-icon{
+    margin-right: 5px;
+    margin-left: 5px;
 }

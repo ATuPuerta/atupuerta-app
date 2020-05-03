@@ -166,7 +166,7 @@ export class HomePage implements OnInit {
   }  
 
   onClickCardTop(){
-    this.navCtrl.navigateForward(['/cart']);
+    // this.navCtrl.navigateForward(['/cart']);
   }
 
   onSwipeLeft(item){

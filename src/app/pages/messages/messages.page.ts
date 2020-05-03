@@ -33,7 +33,10 @@ export class MessagesPage implements OnInit {
   }  
 
   onClick(item){
-    this.navCtrl.navigateForward(['/chat/'+item]);
+    // this.navCtrl.navigateForward(['/chat/'+item]);
+  }
+
+  onClickCardTop(){
   }
 
 }

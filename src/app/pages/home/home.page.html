@@ -6,8 +6,8 @@
     <ion-title *ngIf="!onSearch">ATuPuerta</ion-title>
     <ion-input *ngIf="onSearch" placeholder="Buscar" class="onSearch"></ion-input>
     <ion-buttons slot="end">
-      <ion-icon class="btnCartTop" (click)="onSearch = !onSearch" name="search-outline"></ion-icon>
-      <ion-icon *ngIf="!onSearch" class="btnCartTop" (click)="onClickCardTop()" name="cart-outline"></ion-icon>
+      <ion-icon class="btnCartTop" style="color: white;" name="search-outline"></ion-icon>
+      <ion-icon *ngIf="!onSearch" style="color: white;" class="btnCartTop" (click)="onClickCardTop()" name="cart-outline"></ion-icon>
       <!-- <ion-badge item-end>0</ion-badge> -->
     </ion-buttons>
   </ion-toolbar>
@@ -26,32 +26,31 @@
     </ion-slide>
   </ion-slides>
 
-  <div style="display: flex">
-  <div style="width: 8%;position: absolute;z-index: 10;left: 0;" (click)="slideCatPrev()">
-      <ion-img  class="flechaCat" src="./assets/icon/Flecha-Izquierda.png" ></ion-img>
+  <!-- <div style="display: flex">
+    <div style="width: 8%;position: absolute;z-index: 10;left: 0;" (click)="slideCatPrev()">
+        <ion-img  class="flechaCat" src="./assets/icon/Flecha-Izquierda.png" ></ion-img>
     </div>
-  <ion-slides #slidesCat pager-inner fade class="CategoriasSlide" [options]="slideCategoriasOpts" >
-      <ion-slide *ngFor="let item of [1,2,3,1,2,3]" >
-            <ion-grid no-padding [ngStyle]="categorias[item-1].style" (click)="onClickCat(categorias[item-1].title)"> 
-                <ion-row class="imageCat" [ngStyle]="backgroundCat(item)" >
-                    <!-- <ion-img style="" src="./assets/img/prueba.png"></ion-img> -->
-                </ion-row>
-                <ion-row >
-                    <p class="text">{{categorias[item-1].title}}</p>
-                </ion-row>
-            </ion-grid>
-      </ion-slide>
-    </ion-slides>
-    <div style="width: 8%;position: absolute;z-index: 10;right: 0;" (click)="slideCatNext2()">
-        <ion-img class="flechaCat" src="./assets/icon/Flecha-derecha.png"></ion-img>
+    <ion-slides #slidesCat pager-inner fade class="CategoriasSlide" [options]="slideCategoriasOpts" >
+        <ion-slide *ngFor="let item of [1,2,3,1,2,3]" >
+              <ion-grid no-padding [ngStyle]="categorias[item-1].style" (click)="onClickCat(categorias[item-1].title)"> 
+                  <ion-row class="imageCat" [ngStyle]="backgroundCat(item)" >
+                  </ion-row>
+                  <ion-row >
+                      <p class="text">{{categorias[item-1].title}}</p>
+                  </ion-row>
+              </ion-grid>
+        </ion-slide>
+      </ion-slides>
+      <div style="width: 8%;position: absolute;z-index: 10;right: 0;" (click)="slideCatNext2()">
+          <ion-img class="flechaCat" src="./assets/icon/Flecha-derecha.png"></ion-img>
       </div>
-     </div>
+     </div> -->
 
      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher> 
     <ion-list *ngIf="foods != null" no-lines class="listProduct">
-        <app-eat-item (click)="onClickProduct(item)" (onSwipeLeft)="onSwipeLeft(item)" (onSwipeRight)="onSwipeRight(item)" [item]="item" *ngFor="let item of foods" ></app-eat-item>
+        <app-eat-item textRight="" (click)="onClickProduct(item)" (onSwipeLeft)="onSwipeLeft(item)" (onSwipeRight)="onSwipeRight(item)" [item]="item" *ngFor="let item of foods" ></app-eat-item>
         <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
             <ion-infinite-scroll-content
               loadingSpinner="bubbles"

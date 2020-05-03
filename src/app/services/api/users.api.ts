@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { throwError as observableThrowError } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Config } from './../../../../config';
@@ -17,19 +17,17 @@ export class UsersApi {
         private authService: AuthService,
     ) { }
 
-    user( id:string, params ) {
-        let headers = new HttpHeaders();
-        headers = headers.append("Authorization", "Bearer "+ this.authService.token.token);
-
-        return this.http.get<any>(this.config.url + '/v1/users/'+id , { params, headers } ).pipe(
-            map(data => data),
-            catchError(this.handleError)
-        );
-    }
-
     update( id:string, params:any, query:any = {} ) {
         let headers = new HttpHeaders();
-        headers = headers.append("Authorization", "Bearer "+ this.authService.token.token);
+        let token = this.authService.getAuthorization();
+
+        if( !token ){
+            return Observable.create( subscriber => {
+                subscriber.error( { message:"Necesitas estar logueado para realizar esta acción" } );
+            } );
+        }
+
+        headers = headers.append("Authorization", token);
 
         return this.http.put<any>(this.config.url + '/v1/users/'+id , params, { headers, params:query } ).pipe(
             map(data => data),
@@ -46,6 +44,12 @@ export class UsersApi {
         let headers = new HttpHeaders();
 
         let token = this.authService.getAuthorization();
+
+        if( !token ){
+            return Observable.create( subscriber => {
+                subscriber.error( { message:"Necesitas estar logueado para realizar esta acción" } );
+            } );
+        }
 
         headers = headers.append("authorization", token);
         headers = headers.append("content-type", "application/json");

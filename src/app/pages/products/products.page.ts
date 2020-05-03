@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AlertService } from '../../services/alert.service';
 import { FoodsApi } from '../../services/api/foods.api';
 import { Foods } from '../../models/Foods';
+import { Config } from '../../../../config';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-products',
@@ -41,6 +43,8 @@ export class ProductsPage implements OnInit {
     private navCtrl:NavController,
     private alertService:AlertService,
     private foodsApi:FoodsApi,
+    private config:Config,
+    private authService:AuthService,
   ) { }
 
   ngOnInit() {
@@ -94,8 +98,25 @@ export class ProductsPage implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  validatePerfil(){
+    if( !this.authService.user ) return false;
+    if( !this.authService.user.name ) return false;
+    if( !this.authService.user.email ) return false;
+    if( !this.authService.user.movil_number ) return false;
+    if( !this.authService.user.provincia ) return false;
+    return true;
+  }
+
   onAddProduct(){
-    this.navCtrl.navigateForward(['/products/add']);
+    if( !this.validatePerfil() ){
+      this.alertService.presentToast("Para poder publicar es necesario que completes el Perfil");
+      return;
+    }
+
+    if( this.config.limitAnunciosFree > this.foods.length || this.authService.user.is_provider )
+      this.navCtrl.navigateForward(['/products/add']);
+    else
+      this.alertService.presentToast("Has llegado al limite de publicaciones permitidas, contacte con el admin");
   }
 
   onClickProduct(item){

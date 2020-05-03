@@ -25,12 +25,12 @@ export class AppComponent implements OnInit {
       icon: 'heart-outline',
       isLogin:true
     },
-    {
-      title: 'Mensajes',
-      url: '/messages',
-      icon: 'chatbubbles-outline',
-      isLogin:true
-    },
+    // {
+    //   title: 'Mensajes',
+    //   url: '/messages',
+    //   icon: 'chatbubbles-outline',
+    //   isLogin:true
+    // },
     {
       title: 'Mis Productos',
       url: '/products',

@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { throwError as observableThrowError } from 'rxjs';
+import { throwError as observableThrowError, Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Config } from './../../../../config';
@@ -29,6 +29,23 @@ export class AuthApi {
         };
 
         return this.http.post<any>(this.config.url + '/v1/login', params ).pipe(
+            map(data => data),
+            catchError(this.handleError)
+        );
+    }
+
+    user( token:string, id:string, params ) {
+        let headers = new HttpHeaders();
+
+        if( !token ){
+            return Observable.create( subscriber => {
+                subscriber.error( { message:"Necesitas estar logueado para realizar esta acción" } );
+            } );
+        }
+
+        headers = headers.append("Authorization", token);
+
+        return this.http.get<any>(this.config.url + '/v1/users/'+id , { params, headers } ).pipe(
             map(data => data),
             catchError(this.handleError)
         );

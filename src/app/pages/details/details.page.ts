@@ -168,15 +168,15 @@ export class DetailsPage implements OnInit {
 
 
   async message(){
-    const chatModal = await this.modalController.create({
-      component: ChatPage,
-      cssClass: "modalChat",
-      componentProps: { 
-        id:5,
-        isModal:true
-      }
-    });
-    return await chatModal.present();
+    // const chatModal = await this.modalController.create({
+    //   component: ChatPage,
+    //   cssClass: "modalChat",
+    //   componentProps: { 
+    //     id:5,
+    //     isModal:true
+    //   }
+    // });
+    // return await chatModal.present();
   }
 
   onPan(event){
@@ -198,7 +198,7 @@ export class DetailsPage implements OnInit {
   } 
 
   onClickCardTop(){
-    this.navCtrl.navigateForward(['/cart']);
+    // this.navCtrl.navigateForward(['/cart']);
   }
 
   addCart(){
@@ -213,4 +213,18 @@ export class DetailsPage implements OnInit {
     this.loadDetails()
     event.target.complete()
   }  
+
+  numberPhone(){
+    if( !this.food.createdBy ) return ""
+
+    if( this.food.createdBy.phone_number )
+      return this.food.createdBy.movil_number + "; " + this.food.createdBy.phone_number;
+
+      return this.food.createdBy.movil_number;
+  }
+
+  whatsapp(){
+    if( !this.food || !this.food.createdBy || !this.food.createdBy.movil_number) return "";
+    return "https://wa.me/" + this.food.createdBy.movil_number + "?text=Hola, en ATuPuerta he visto su publicación"
+  }
 }

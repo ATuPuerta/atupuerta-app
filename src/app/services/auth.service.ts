@@ -17,6 +17,7 @@ export class AuthService {
   token:any;
   username:string = "Invitado";
   profilePicture:string = null;
+  user:any = null;
 
   public isLoggedInObs: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public isLoggedInSubject:Subject<any> = new Subject<any>();
@@ -43,6 +44,7 @@ export class AuthService {
                 self.profilePicture = data.profile_picture;
                 
                 data.username = username
+                this.getUserApi();
                 
                 self.storage.setItem('token', data)
                 .then(
@@ -63,6 +65,34 @@ export class AuthService {
               return reject(false)
           });
     });
+  }
+
+  getUserApi( ){
+    this.authApi.user( this.getAuthorization(), this.token.userId, {
+      expand:'username,email,phone_number,movil_number,is_provider'
+    } ).subscribe( data => {
+      this.setUser(data);
+    },
+    err => {
+      console.log("error cargando datos de usuario: Api");
+    },
+    ()=>{});
+  }
+
+  setUser( data ){
+    this.user = data;
+    this.profilePicture = this.user.profile_picture;
+    this.storage.setItem("user", data).then( d => {}, e => {} );
+  }
+
+  getUser( ){
+    this.storage.getItem("user").then( 
+      d => { 
+        this.user = d; 
+        this.profilePicture = d.profile_picture; 
+      }, 
+      e => { console.log("error cargando datos de usuario: Storage")} 
+    );
   }
 
   register(params) {
@@ -90,6 +120,7 @@ export class AuthService {
         this.username = "Invitado";
 
         this.profilePicture = null;
+        this.user = null;
 
         return { message:"logout ok" };
   }
@@ -104,6 +135,7 @@ export class AuthService {
 
         if(this.token != null ) {
           this.isLoggedIn=true;
+          this.getUser();
         } else {
           this.isLoggedIn=false;
         }
@@ -113,18 +145,6 @@ export class AuthService {
         this.isLoggedIn=false;
       }
     );
-  }
-
-  editPhotoPerfil( img ){
-    this.profilePicture = img;
-    this.token.profile_picture = img;
-    this.storage.setItem('token', this.token)
-    .then(
-      () => {
-        console.log('Token Stored1');
-      },
-      error => console.error('Error storing item: Token1', error)
-    ); 
   }
 
   getAuthorization( ){

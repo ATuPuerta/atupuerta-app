@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-item lines="none" class="icoFav"><div><ion-icon  name="settings-outline"></ion-icon>Perfil</div></ion-item>
     <ion-buttons slot="end">
-      <ion-icon  class="btnCartTop"  (click)="onClickCardTop()"  name="cart-outline"></ion-icon>
+      <ion-icon  class="btnCartTop" style="color: white;" (click)="onClickCardTop()"  name="cart-outline"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -44,7 +44,7 @@
 
       <ion-item>
           <ion-label position="floating">Provincia</ion-label>
-          <ion-select name="provincia" ngModel >
+          <ion-select name="provincia"  [(ngModel)]="user.provincia" >
           <ion-select-option >Santiago de Cuba</ion-select-option >
           </ion-select>
       </ion-item>
