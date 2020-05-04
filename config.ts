@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class Config {
   url = "http://10.42.0.232:8080";
+  // url = "https://atupuertaapi.daxslab.com";
 
   limitAnunciosFree = 3;
   
