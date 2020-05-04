@@ -46,7 +46,7 @@ export class ChangepasswordPage implements OnInit {
       },
       err=>{
         loading.dismiss();
-        this.alertService.presentToast("Error cambiando contraseña");
+        this.alertService.presentToast(err.message);
       },
       () => {
 

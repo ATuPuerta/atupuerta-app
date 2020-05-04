@@ -14,4 +14,5 @@ export class Foods {
     image2:any;
     image3:any;
     createdBy:any;
+    updated_at:any;
 }

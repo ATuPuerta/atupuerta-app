@@ -161,6 +161,24 @@ export class FoodsApi {
         );
     }
 
+    delete( id:any ){
+        let headers = new HttpHeaders();
+        let token = this.authService.getAuthorization();
+
+        if( !token ){
+            return Observable.create( subscriber => {
+                subscriber.error( { message:"Necesitas estar logueado para realizar esta acción" } );
+            } );
+        }
+
+        headers = headers.append("Authorization", token);
+        
+        return this.http.delete<Foods>(this.config.url + '/v1/foods/' + id, { headers } ).pipe(
+            map(data => data),
+            catchError(this.handleError)
+        );
+    }
+
     private handleError(res: HttpErrorResponse | any) {
         return observableThrowError(res.error || 'Server error');
     }

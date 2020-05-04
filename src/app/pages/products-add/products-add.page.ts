@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavController, LoadingController } from '@ionic/angular';
+import { NavController, LoadingController,  AlertController  } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AlertService } from '../../services/alert.service';
@@ -30,6 +30,7 @@ export class ProductsAddPage implements OnInit {
     private loadingCtrl:LoadingController,
     private authService:AuthService,
     private alertService:AlertService,
+    private alertCtrl:AlertController,
     private foodsApi:FoodsApi,
     private imageCache: ImageCacheService,
   ) { }
@@ -48,6 +49,11 @@ export class ProductsAddPage implements OnInit {
     await loading.present();
     this.foodsApi.foodId( this.id, { sort:"-created_at", expand:"active,image2,image3" } ).subscribe( data => {
       this.food = data;
+      delete this.food.id;
+      delete this.food.star;
+      delete this.food.cant_comments;
+      delete this.food.updated_at;
+      delete this.food.is_favorite;
 
       this.imageCache.transform( this.food.image1, "food" ).then( newUrl => {
         this.image1 = newUrl;
@@ -107,7 +113,7 @@ export class ProductsAddPage implements OnInit {
     },
     err=> {
       loading.dismiss();
-      this.alertService.presentToast("Error creando producto");
+      this.alertService.presentToast("Error creando el producto");
     }, 
     () => {
 
@@ -125,7 +131,7 @@ export class ProductsAddPage implements OnInit {
     },
     err=> {
       loading.dismiss();
-      this.alertService.presentToast("Error editando producto");
+      this.alertService.presentToast("Error editando el producto");
     }, 
     () => {
 
@@ -196,5 +202,42 @@ export class ProductsAddPage implements OnInit {
 
   resizeTextarea(){
     this.myTextarea.nativeElement.style.height = this.myTextarea.nativeElement.scrollHeight + 'px';
+  }
+
+  async delete(){
+    const alert = await this.alertCtrl.create({
+      message: 'Seguro que deseas eliminar la publicación',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary'
+        }, {
+          text: 'Aceptar',
+          handler: () => {
+            this.deleteFoods();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  async deleteFoods(){
+    let loading = await this.loadingCtrl.create( { message:"Eliminando" } )
+    await loading.present();
+    this.foodsApi.delete( this.id ).subscribe( data => {
+      this.navCtrl.back();
+      loading.dismiss();
+      this.alertService.presentToast("El producto ha sido eliminado");
+    },
+    err=> {
+      loading.dismiss();
+      this.alertService.presentToast("Error eliminado el producto");
+    }, 
+    () => {
+
+    });
   }
 }
