@@ -102,7 +102,10 @@ export class AuthService {
           resolve(true);
         },
         error => {
-          reject(false);
+          if( error && error.length )
+            reject(error[0]);
+          else
+            reject({message:"Error registrando usuario."});
         },
         () => {
           

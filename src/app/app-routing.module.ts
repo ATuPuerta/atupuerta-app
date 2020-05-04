@@ -56,7 +56,8 @@ const routes: Routes = [
   },
   {
     path: 'contact',
-    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule)
+    loadChildren: () => import('./pages/contact/contact.module').then( m => m.ContactPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'cart',
@@ -66,6 +67,10 @@ const routes: Routes = [
     path: 'changepassword',
     loadChildren: () => import('./pages/changepassword/changepassword.module').then( m => m.ChangepasswordPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'terms',
+    loadChildren: () => import('./pages/terms/terms.module').then( m => m.TermsPageModule)
   },
 ];
 

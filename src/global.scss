@@ -24,6 +24,7 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import 'intl-tel-input/build/css/intlTelInput.css';
 
 
 ion-title{
@@ -86,4 +87,8 @@ ion-title{
 
 .HomeSlide  .swiper-pagination-bullets {
     bottom: 20px;
+}
+
+.phone .iti__selected-flag{
+    border-radius: 8px;
 }

@@ -147,7 +147,8 @@ export class DetailsPage implements OnInit {
         this.comments = [params];
       else
         this.comments.unshift( params );
-        this.commentText = "";
+      this.commentText = "";
+      this.myTextarea.nativeElement.style.height = '120px';
       this.food.cant_comments = parseInt(this.food.cant_comments);
       this.food.star = ( this.food.star*this.food.cant_comments + params.start)/(this.food.cant_comments+1);
       this.food.cant_comments += 1; 
@@ -217,10 +218,17 @@ export class DetailsPage implements OnInit {
   numberPhone(){
     if( !this.food.createdBy ) return ""
 
-    if( this.food.createdBy.phone_number )
-      return this.food.createdBy.movil_number + "; " + this.food.createdBy.phone_number;
+    let num = "";
 
-      return this.food.createdBy.movil_number;
+    if( this.food.createdBy.movil_number )
+      num = this.food.createdBy.movil_number;
+
+    if( this.food.createdBy.phone_number ){
+      if( num != "" ) num += "; ";
+      num += this.food.createdBy.phone_number;
+    }
+
+      return num;
   }
 
   whatsapp(){

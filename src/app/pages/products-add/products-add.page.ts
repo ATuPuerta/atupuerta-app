@@ -102,7 +102,35 @@ export class ProductsAddPage implements OnInit {
       this.edit();
   }
 
+  validateFoods(){
+    if( !this.food.title || !this.food.title.trim() ){
+      this.alertService.presentToast("El título es requerido");
+      return false;
+    }
+
+    if( !this.food.price || this.food.price <= 0 ){
+      this.alertService.presentToast("El precio es requerido");
+      return false;
+    }
+
+    if( !this.food.moneyType ){
+      this.alertService.presentToast("El tipo de moneda es requerido");
+      return false;
+    }
+
+    if( !this.food.description || !this.food.description.trim() ){
+      this.alertService.presentToast("La descripción es requerida");
+      return false;
+    }
+
+    this.food.title = this.food.title.trim();
+    this.food.description = this.food.description.trim();
+    return true;
+  }
+
   async create(){
+    if( !this.validateFoods() ) return;
+
     let loading = await this.loadingCtrl.create( { message:"Cargando" } )
     await loading.present();
     this.updateImage();
@@ -121,6 +149,8 @@ export class ProductsAddPage implements OnInit {
   }
 
   async edit(){
+    if( !this.validateFoods() ) return;
+
     let loading = await this.loadingCtrl.create( { message:"Cargando" } )
     await loading.present();
     this.updateImage();

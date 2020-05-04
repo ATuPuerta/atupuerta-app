@@ -102,7 +102,7 @@ export class ProductsPage implements OnInit {
     if( !this.authService.user ) return false;
     if( !this.authService.user.name ) return false;
     if( !this.authService.user.email ) return false;
-    if( !this.authService.user.movil_number ) return false;
+    if( !this.authService.user.movil_number && !this.authService.user.phone_number ) return false;
     if( !this.authService.user.provincia ) return false;
     return true;
   }

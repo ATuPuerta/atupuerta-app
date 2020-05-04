@@ -11,5 +11,16 @@
 </ion-header>
 
 <ion-content>
+    <ion-card>
+        <ion-card-content>
+          Por este medio se puede reportar cualquir inquietud o surgerencias sobre los servicios prestados.
+          <br/>
+          <br/>
+           Muchas gracias
+        </ion-card-content>
+      </ion-card>
 
+    <textarea #myTextarea (keyup)="resizeTextarea()" class="text" [(ngModel)]="text" #textarea placeholder="Mensaje" heigth="120" lineHeight="120" maxExpand="120" ngModel type="number"></textarea>
+
+    <ion-button [disabled]="text?.trim().length<5"  (click)="send()" expand="full" color="primary">Enviar</ion-button>
 </ion-content>

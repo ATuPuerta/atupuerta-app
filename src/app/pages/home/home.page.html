@@ -59,7 +59,7 @@
           </ion-infinite-scroll>
     </ion-list>
 
-    <ion-list class="skeletonFoods" *ngIf="foods == null">
+    <ion-list class="skeletonFoods listProduct" *ngIf="foods == null">
       <ion-card  *ngFor="let num of [0,1,2]">
           <ion-card-content>
           <ion-thumbnail slot="start">

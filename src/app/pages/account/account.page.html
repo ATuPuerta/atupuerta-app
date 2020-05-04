@@ -32,15 +32,19 @@
         <ion-input type="email"  [(ngModel)]="user.email" name="email"></ion-input>
       </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Télefono fijo</ion-label>
-          <ion-input type="tel" name="phone_number"  [(ngModel)]="user['phone_number']" ></ion-input>
+      <ion-item class="phone">
+        <div>
+          <ion-label>Télefono fijo</ion-label>
+          <input type="tel" id="phone_number" name="phone_number" #phone>
+        </div>
       </ion-item>
 
-      <ion-item>
-          <ion-label position="floating">Celular</ion-label>
-          <ion-input type="tel" name="movil_number"  [(ngModel)]="user['movil_number']" ></ion-input>
-      </ion-item>
+      <ion-item class="phone">
+          <div>
+            <ion-label>Celular</ion-label>
+            <input type="tel" placeholder="" id="movil_number" name="movil_number" #movil>
+          </div>
+        </ion-item>
 
       <ion-item>
           <ion-label position="floating">Provincia</ion-label>

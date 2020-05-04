@@ -18,6 +18,8 @@ export class RegisterPage implements OnInit {
     public loadingCtrl: LoadingController,
   ) { }
 
+  terms:boolean = false;
+
   ngOnInit() {
   }
 
@@ -31,12 +33,13 @@ export class RegisterPage implements OnInit {
   }
 
   async register(form:NgForm){
-    if( !form.value.username ){
+    console.log(form.value);
+    if( !form.value.username || !form.value.username.trim()){
       this.alertService.presentToast("La nombre de usuario es requerido");
       return;
     }
 
-    if( !form.value.name ){
+    if( !form.value.name || !form.value.name.trim() ){
       this.alertService.presentToast("El nombre es requerido");
       return;
     }
@@ -56,11 +59,16 @@ export class RegisterPage implements OnInit {
       return;
     }
 
+    if( !this.terms ){
+      this.alertService.presentToast("Debes aceptar los terminos y condiciones de uso");
+      return;
+    }
+    
     let params = {
-      username: form.value.username,
+      username: form.value.username.trim(),
       password: form.value.password,
       email: form.value.email,
-      name: form.value.name,
+      name: form.value.name.trim(),
     };
 
     let loading = await this.loadingCtrl.create( { message:"Cargando" } )
@@ -75,16 +83,22 @@ export class RegisterPage implements OnInit {
         },
         err=> {
           loading.dismiss();
-          this.alertService.presentToast("Error iniciando sección usuario.");
+          
+            this.alertService.presentToast("Error iniciando sección usuario.");
         }
       )
     }).catch( e => {
+      console.log(e);
       loading.dismiss();
-      this.alertService.presentToast("Error registrando usuario.");
+      this.alertService.presentToast(e.message);
     });
   }
 
   dismiss(){
     this.navCtrl.back();
+  }
+
+  onTerms(){
+    this.navCtrl.navigateForward('/terms');
   }
 }

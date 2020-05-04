@@ -35,17 +35,23 @@ ion-content{
     --padding-start: 15px;
 }
 
-.text{
-    margin-top: 10px;
-    width: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    min-height: 120px;
-    padding: 11px;
-    border-radius: 8px;
+ion-content h3{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 30px;
 }
 
-ion-card{
-    margin: 0;
+ion-content p{
     text-align: justify;
+    white-space: pre-wrap;
+}
+
+ion-content li{
+    list-style: decimal;
+    text-align: justify;
+    white-space: pre-wrap;
+}
+
+ion-content ul{
+    padding-left: 25px;
 }

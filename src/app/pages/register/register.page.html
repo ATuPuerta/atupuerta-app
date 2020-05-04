@@ -35,6 +35,10 @@
             <ion-label position="floating">Confirmar contraseña</ion-label> 
             <ion-input type="password" ngModel name="repassword"></ion-input>
           </ion-item>
+
+        <div class="terms">
+            <ion-toggle [(ngModel)]="terms" name="terms"></ion-toggle> <a (click)="onTerms()">Acepto los terminos y condiciones de uso.</a> 
+        </div>
       
         <ion-button type="submit" expand="full" color="primary">Crear cuenta</ion-button>
       </form>

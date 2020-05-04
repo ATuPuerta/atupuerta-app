@@ -39,8 +39,14 @@ export class AppComponent implements OnInit {
     },
     {
       title: 'Contactanos',
-      url: '/contact',
+      url: '/contact', 
       icon: 'mail-outline',
+      isLogin:true
+    },
+    {
+      title: 'Términos y Condiciones',
+      url: '/terms',
+      icon: 'shield-checkmark-outline',
       isLogin:false
     }
   ];

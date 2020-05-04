@@ -48,3 +48,34 @@
     margin-top: 70px;
     margin-left: -35px;
 }
+
+.phone{
+    --padding-start: 0;
+}
+
+
+.phone:focus, 
+.phone:hover{
+    border-bottom: 3px solid #3880ff;
+}
+
+.phone > div{
+    margin-left: 16px;
+    width: 100%;
+}
+.phone > div{
+    width: 100%;
+}
+
+#phone_number, #movil_number{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 34px;
+}
+
+.phone ion-label{
+    font-size: 11px;
+    margin-bottom: 3px;
+    margin-top: 5px;
+}

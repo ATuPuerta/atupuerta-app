@@ -6,3 +6,14 @@ ion-content{
 ion-title {
     padding-right: 52px;
 }
+
+.terms{
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.termsDiv a{
+    text-decoration: underline;
+}
