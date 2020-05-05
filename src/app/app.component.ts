@@ -17,36 +17,42 @@ export class AppComponent implements OnInit {
       title: 'Inicio',
       url: '/home',
       icon: 'home-outline',
+      direction: 'root',
       isLogin:false
     },
     {
       title: 'Favoritos',
       url: '/favorites',
       icon: 'heart-outline',
+      direction: 'forward',
       isLogin:true
     },
     // {
     //   title: 'Mensajes',
     //   url: '/messages',
     //   icon: 'chatbubbles-outline',
+    //   direction: 'forward',
     //   isLogin:true
     // },
     {
       title: 'Mis Productos',
       url: '/products',
       icon: 'fast-food-outline',
+      direction: 'forward',
       isLogin:true
     },
     {
       title: 'Contactanos',
       url: '/contact', 
       icon: 'mail-outline',
+      direction: 'forward',
       isLogin:true
     },
     {
       title: 'Términos y Condiciones',
       url: '/terms',
       icon: 'shield-checkmark-outline',
+      direction: 'forward',
       isLogin:false
     }
   ];

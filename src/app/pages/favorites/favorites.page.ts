@@ -51,15 +51,15 @@ export class FavoritesPage implements OnInit {
       });
   }
 
-  ionViewDidEnter(){
-    this.subscription = this.platform.backButton.subscribe(()=>{
-        navigator['app'].exitApp();
-    });
-  }
+  // ionViewDidEnter(){
+  //   this.subscription = this.platform.backButton.subscribe(()=>{
+  //       navigator['app'].exitApp();
+  //   });
+  // }
 
-  ionViewWillLeave(){
-    this.subscription.unsubscribe();
-  }
+  // ionViewWillLeave(){
+  //   this.subscription.unsubscribe();
+  // }
 
   onClickProduct(item){
     this.navCtrl.navigateForward(['/details/'+item.id]);

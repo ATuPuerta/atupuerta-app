@@ -88,15 +88,15 @@ export class ProductsPage implements OnInit {
     this.update(event.target, true);
   }  
 
-  ionViewDidEnter(){
-    this.subscription = this.platform.backButton.subscribe(()=>{
-        navigator['app'].exitApp();
-    });
-  }
+  // ionViewDidEnter(){
+  //   this.subscription = this.platform.backButton.subscribe(()=>{
+  //       navigator['app'].exitApp();
+  //   });
+  // }
 
-  ionViewWillLeave(){
-    this.subscription.unsubscribe();
-  }
+  // ionViewWillLeave(){
+  //   this.subscription.unsubscribe();
+  // }
 
   validatePerfil(){
     if( !this.authService.user ) return false;

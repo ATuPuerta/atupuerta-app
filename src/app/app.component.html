@@ -43,7 +43,7 @@
       <ion-content style="--padding-top: 0px; --padding-bottom: 0px;">
           <ion-list>
               <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                <ion-item (click)="selectedIndex = i" *ngIf="!p.isLogin || authService.isLoggedIn" [routerDirection]="'root'" [class.selected]="selectedIndex == 999+i" [routerLink]="[p.url]">
+                <ion-item (click)="selectedIndex = i" *ngIf="!p.isLogin || authService.isLoggedIn" [routerDirection]="p.direction" [class.selected]="selectedIndex == 999+i" [routerLink]="[p.url]">
                   <ion-icon slot="start" [name]="p.icon"></ion-icon>
                   <ion-label>
                     {{p.title}}
