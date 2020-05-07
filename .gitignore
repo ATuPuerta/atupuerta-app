@@ -41,3 +41,6 @@ UserInterfaceState.xcuserstate
 *.java
 
 android/app/google-services\.json
+
+resources/android/*
+resources/ios/*

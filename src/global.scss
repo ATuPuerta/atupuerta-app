@@ -92,3 +92,28 @@ ion-title{
 .phone .iti__selected-flag{
     border-radius: 8px;
 }
+
+ion-toolbar, ion-header{
+    --background: #660066;
+    color:white;
+}
+ 
+
+.backgroundBtnAc{
+    --background: #3FB618;
+}
+
+
+.backgroundBtnNe{
+    --background: #2780E3;
+}
+
+
+.noAfterHeader::after{
+    content: none !important;
+}
+
+
+.colorWhite{
+    color: white;
+  }

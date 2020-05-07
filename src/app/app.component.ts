@@ -24,28 +24,28 @@ export class AppComponent implements OnInit {
       title: 'Favoritos',
       url: '/favorites',
       icon: 'heart-outline',
-      direction: 'forward',
+      direction: 'root',
       isLogin:true
     },
     // {
     //   title: 'Mensajes',
     //   url: '/messages',
     //   icon: 'chatbubbles-outline',
-    //   direction: 'forward',
+    //   direction: 'root',
     //   isLogin:true
     // },
     {
       title: 'Mis Productos',
       url: '/products',
       icon: 'fast-food-outline',
-      direction: 'forward',
+      direction: 'root',
       isLogin:true
     },
     {
       title: 'Contactanos',
       url: '/contact', 
       icon: 'mail-outline',
-      direction: 'forward',
+      direction: 'root',
       isLogin:true
     },
     {
@@ -73,7 +73,8 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      this.statusBar.overlaysWebView(true);
+      this.statusBar.backgroundColorByHexString("#813182");
       this.splashScreen.hide();
       this.authService.getToken().then(() => {
       },

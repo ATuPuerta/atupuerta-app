@@ -5,7 +5,7 @@
     width: 40px;
     height: 40px;
     margin-top: 5px;
-    color: #feb92f;
+    color: #ffcc00;
 }
 
 .icoFav{
@@ -13,6 +13,7 @@
     font-family: cursive;
     --inner-padding-end: 0;
     --padding-end: 16px;
+    --background: #660066;
 }
 
 .icoFav div{
@@ -20,7 +21,7 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    color: #424242;
+    color: white;
     font-weight: bold;
 }
 

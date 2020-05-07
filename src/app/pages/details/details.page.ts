@@ -163,7 +163,7 @@ export class DetailsPage implements OnInit {
   styleStar(fontSize, value, i){
     return {
       "font-size": fontSize+"px",
-      "color": ( value >= i ) ? "#feb92f" : "#92949c"
+      "color": ( value >= i ) ? "#ffcc00" : "#92949c"
     }
   }
 

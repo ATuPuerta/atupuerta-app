@@ -1,0 +1,16 @@
+<ion-header class="noAfterHeader" [translucent]="true">
+    <!-- <ion-toolbar> -->
+      <ion-buttons slot="start">
+        <ion-menu-button *ngIf="!buttonBack"></ion-menu-button>
+        <ion-button clear *ngIf="buttonBack" color="white" (click)="dismiss()"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+      </ion-buttons>
+      <!-- <ion-title *ngIf="!onSearch">ATuPuerta</ion-title> -->
+      <img class="icoTouchdcity" src="./assets/icon/touchdcity.png"/>
+      <ion-input *ngIf="onSearch" placeholder="Buscar" class="onSearch"></ion-input>
+      <ion-buttons slot="end">
+        <ion-icon class="btnCartTop" style="color: transparent;" name="search-outline"></ion-icon>
+        <ion-icon *ngIf="!onSearch" style="color: transparent;" class="btnCartTop" (click)="onClickCardTop()" name="cart-outline"></ion-icon>
+        <!-- <ion-badge item-end>0</ion-badge> -->
+      </ion-buttons>
+    <!-- </ion-toolbar> -->
+  </ion-header>

@@ -45,15 +45,16 @@ ion-avatar{
     width: 50px;
     height: 50px;
     margin-top: 5px;
-    color: #feb92f;
+    color: #ffcc00;
 }
 
 .icoFav{
     font-size: 24px;
     font-family: cursive;
     --inner-padding-end: 0;
-    color: #424242;
+    color: white;
     font-weight: bold;
+    --background: #660066;
 }
 
 .icoFav div{

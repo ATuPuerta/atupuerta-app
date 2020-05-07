@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { TermsPageRoutingModule } from './terms-routing.module';
+import { ComponentsModule } from '../../components/components.module';
 
 import { TermsPage } from './terms.page';
 
@@ -13,7 +14,8 @@ import { TermsPage } from './terms.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    TermsPageRoutingModule
+    TermsPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [TermsPage]
 })

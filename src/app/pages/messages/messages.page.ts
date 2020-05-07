@@ -18,15 +18,15 @@ export class MessagesPage implements OnInit {
   ngOnInit() {
   }
 
-  // ionViewDidEnter(){
-  //   this.subscription = this.platform.backButton.subscribe(()=>{
-  //       navigator['app'].exitApp();
-  //   });
-  // }
+  ionViewDidEnter(){
+    this.subscription = this.platform.backButton.subscribe(()=>{
+        navigator['app'].exitApp();
+    });
+  }
 
-  // ionViewWillLeave(){
-  //   this.subscription.unsubscribe();
-  // }
+  ionViewWillLeave(){
+    this.subscription.unsubscribe();
+  }
 
   doRefresh(event){
     event.target.complete();

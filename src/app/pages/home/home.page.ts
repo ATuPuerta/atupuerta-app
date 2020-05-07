@@ -40,7 +40,7 @@ export class HomePage implements OnInit {
     slidesPerView: 3
   };
 
-  styleCatActive = { "box-shadow": "1px 1px 5px 1px #feb92f"};
+  styleCatActive = { "box-shadow": "1px 1px 5px 1px #ffcc00"};
 
   categorias = [
     {

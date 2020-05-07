@@ -1,11 +1,7 @@
-ion-toolbar{
+/*ion-toolbar{
     box-shadow: 0px 0px 25px 5px #626262;
-}
+}*/
 
-ion-title{
-    padding-right: 0px;
-    padding-left: 14px;
-}
 
 .HomeSlide ion-slide{
     min-width: 100vw;
@@ -16,8 +12,6 @@ ion-title{
 
 .HomeSlide ion-slide h1{ 
     color: white;
-    bottom: 30px;
-    position: absolute;
 }
 
 .CategoriasSlide ion-slide{
@@ -51,7 +45,7 @@ ion-title{
 }
 
 .CategoriasSlide ion-grid.active{
-    box-shadow: 1px 1px 5px 1px #feb92f;
+    box-shadow: 1px 1px 5px 1px #ffcc00;
 }
 
 .listProduct{
@@ -64,9 +58,6 @@ ion-title{
     border-radius: 50%;
 }
 
-.onSearch{
-    padding-right: 13px !important;
-}
 
 .listProduct{
     margin-top: -15px;
@@ -77,4 +68,15 @@ ion-title{
     border-top-right-radius: 20px;
     padding-top: 10px;
 }
+
+.inteSlide{
+    // background-color: rgba(103, 2, 103, .80);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
 

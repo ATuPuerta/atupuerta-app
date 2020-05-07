@@ -9,30 +9,30 @@
                         <ion-img-cache class="imgBorderRadios100" [src]="authService.profilePicture" category="user" width="40" height="40" ></ion-img-cache>
                   </ion-avatar>
                   <ion-label>
-                    <ion-text color="medium">
+                    <ion-text class="colorWhite" >
                       <h1><strong>{{authService.username}}</strong></h1>
                     </ion-text>
                     <ion-button *ngIf="authService.isLoggedIn"  (click)="account()" clear class="btnAuth">
-                      <ion-icon name="settings-outline"></ion-icon>
-                      <ion-label>
+                      <ion-icon  color="white" name="settings-outline"></ion-icon>
+                      <ion-label class="colorWhite">
                         Perfil
                       </ion-label>
                     </ion-button>
                     <ion-button *ngIf="authService.isLoggedIn" (click)="logout()" clear class="btnAuth">
-                        <ion-icon name="exit-outline"></ion-icon>
-                      <ion-label>
+                        <ion-icon  color="white" name="exit-outline"></ion-icon>
+                      <ion-label class="colorWhite">
                         Logout
                       </ion-label>
                     </ion-button>
                     <ion-button *ngIf="!authService.isLoggedIn" (click)="register()" clear class="btnAuth">
-                        <ion-icon name="ribbon-outline"></ion-icon>
-                        <ion-label>
+                        <ion-icon color="white" name="ribbon-outline"></ion-icon>
+                        <ion-label class="colorWhite">
                             Registrase
                         </ion-label>
                       </ion-button>
                      <ion-button *ngIf="!authService.isLoggedIn" (click)="login()" clear class="btnAuth">
-                        <ion-icon name="enter-outline"></ion-icon>
-                      <ion-label>
+                        <ion-icon color="white" name="enter-outline"></ion-icon>
+                      <ion-label class="colorWhite">
                         Login
                       </ion-label>
                     </ion-button>

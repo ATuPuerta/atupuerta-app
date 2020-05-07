@@ -1,28 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title *ngIf="!onSearch">ATuPuerta</ion-title>
-    <ion-input *ngIf="onSearch" placeholder="Buscar" class="onSearch"></ion-input>
-    <ion-buttons slot="end">
-      <ion-icon class="btnCartTop" style="color: white;" name="search-outline"></ion-icon>
-      <ion-icon *ngIf="!onSearch" style="color: white;" class="btnCartTop" (click)="onClickCardTop()" name="cart-outline"></ion-icon>
-      <!-- <ion-badge item-end>0</ion-badge> -->
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
 <ion-content>
   <ion-slides pager class="HomeSlide" [options]="slideHomeOpts" >
     <ion-slide [ngStyle]="background()">
-        <h1>My Slide 1</h1>
+      <div class="inteSlide">
+        <h1>Explora Cuba con Nosotros</h1>
+      </div>
     </ion-slide>
     <ion-slide [ngStyle]="background()"> 
-      <h1>My Slide 2</h1>
+        <div class="inteSlide">
+          <h1>Explora Cuba con Nosotros</h1>
+        </div>
     </ion-slide>
     <ion-slide [ngStyle]="background()">
-      <h1>My Slide 3</h1>
+        <div class="inteSlide">
+          <h1>Explora Cuba con Nosotros</h1>
+        </div>
     </ion-slide>
   </ion-slides>
 
